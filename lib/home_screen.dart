@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hagz_kura/insert_names.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -62,7 +63,13 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisCount: 3,
             children: List.generate(9, (index) {
               return InkWell(
-                onTap: () {},
+                splashColor: Colors.transparent,
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => InsertNames(index + 3)));
+                },
                 child: Material(
                   color: Colors.transparent,
                   child: Card(
@@ -85,55 +92,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ))
         ],
       ),
-    );
-  }
-}
-
-class InsertPlayers extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height,
-        width = MediaQuery.of(context).size.width;
-    return Column(
-      children: [
-        Expanded(
-          child: Text(
-            'أساميهم..',
-            style: TextStyle(
-                fontFamily: 'MyArabicFont',
-                color: Colors.black,
-                fontSize: width * .07),
-          ),
-        ),
-        Expanded(
-            child: GridView.count(
-          padding: EdgeInsets.only(
-              left: width * .15, right: width * .15, bottom: height * .35),
-          crossAxisCount: 3,
-          children: List.generate(9, (index) {
-            return InkWell(
-              onTap: () {},
-              child: Material(
-                color: Colors.transparent,
-                child: Card(
-                  shape: CircleBorder(),
-                  child: CircleAvatar(
-                    radius: 30,
-                    backgroundColor: Color(0xFFF27986),
-                    child: Text(
-                      '${index + 3}',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            );
-          }),
-        ))
-      ],
     );
   }
 }
