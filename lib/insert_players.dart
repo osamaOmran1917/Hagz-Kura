@@ -1,6 +1,5 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:hagz_kura/skills_based_selection.dart';
 
 class InsertPlayers extends StatefulWidget {
   final int playersNum;
@@ -22,13 +21,6 @@ class _InsertPlayersState extends State<InsertPlayers> {
     randomNumbers = [];
   }
 
-  void _generateRandomNumber() {
-    for (int i = 0; i < widget.playersNum; i++) {
-      randomNumbers.add(Random().nextInt(100));
-      print('رقم: ${randomNumbers[i]}');
-    }
-  }
-
   void _printData() {
     print(widget.playersNum);
     /*if () {
@@ -44,7 +36,7 @@ class _InsertPlayersState extends State<InsertPlayers> {
         width = MediaQuery.of(context).size.width;
 
     List<Widget> screen = [];
-    for (int i = 0; i < widget.playersNum; i++) {
+    for (int i = 0; i < widget.playersNum * 2; i++) {
       controllers.add(TextEditingController());
 
       screen.add(TextFormField(
@@ -80,11 +72,11 @@ class _InsertPlayersState extends State<InsertPlayers> {
         // _generateRandomNumber();
         List<String> data = [];
         String finalList = '';
-        for (int i = 0; i < widget.playersNum; i++) {
+        for (int i = 0; i < widget.playersNum * 2; i++) {
           data.add(controllers[i].text);
         }
         data.shuffle();
-        for (int i = 0; i < widget.playersNum; i++) {
+        for (int i = 0; i < widget.playersNum * 2; i++) {
           finalList += data[i];
         }
         print(finalList);
@@ -100,11 +92,39 @@ class _InsertPlayersState extends State<InsertPlayers> {
                     height: height * .7,
                     child: Scaffold(
                       body: Center(
-                        child: Text(finalList,
-                            style: TextStyle(
-                                fontFamily: 'MyArabicFont',
-                                color: Colors.black,
-                                fontSize: width * .07)),
+                        child: SingleChildScrollView(
+                          physics: BouncingScrollPhysics(),
+                          child: Column(
+                            children: [
+                              Text('الفريق الأول',
+                                  style: TextStyle(
+                                      fontFamily: 'MyArabicFont',
+                                      color: Color(0xFFF27986),
+                                      fontSize: width * .07,
+                                      fontWeight: FontWeight.bold)),
+                              for (int i = 0; i < widget.playersNum; i++)
+                                Text(data[i],
+                                    style: TextStyle(
+                                        fontFamily: 'MyArabicFont',
+                                        color: Colors.black,
+                                        fontSize: width * .07)),
+                              Text('الفريق الثاني',
+                                  style: TextStyle(
+                                      fontFamily: 'MyArabicFont',
+                                      color: Color(0xFFF27986),
+                                      fontSize: width * .07,
+                                      fontWeight: FontWeight.bold)),
+                              for (int i = widget.playersNum;
+                                  i < widget.playersNum * 2;
+                                  i++)
+                                Text(data[i],
+                                    style: TextStyle(
+                                        fontFamily: 'MyArabicFont',
+                                        color: Colors.black,
+                                        fontSize: width * .07))
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -136,7 +156,13 @@ class _InsertPlayersState extends State<InsertPlayers> {
         if (formKye.currentState?.validate() == false) {
           return;
         }
-        _generateRandomNumber();
+        List<String> players = [];
+        for (int i = 0; i < widget.playersNum * 2; i++)
+          players.add(controllers[i].text);
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (_) => SkillsBasedSelectionScreen(players)));
       },
       child: Text(
         'تقسيم حسب المهارات',
