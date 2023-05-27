@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hagz_kura/insert_names.dart';
+import 'package:hagz_kura/insert_players.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -58,6 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Expanded(
               child: GridView.count(
+                physics: BouncingScrollPhysics(),
             padding: EdgeInsets.only(
                 left: width * .15, right: width * .15, bottom: height * .35),
             crossAxisCount: 3,
@@ -68,17 +69,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (_) => InsertNames(index + 3)));
+                          builder: (_) => InsertPlayers(index + 3)));
                 },
-                child: Material(
-                  color: Colors.transparent,
-                  child: Card(
-                    shape: CircleBorder(),
-                    child: CircleAvatar(
-                      radius: 30,
-                      backgroundColor: Color(0xFFF27986),
-                      child: Text(
-                        '${index + 3}',
+                    child: Material(
+                      color: Colors.transparent,
+                      child: Card(
+                        shape: CircleBorder(),
+                        child: CircleAvatar(
+                          radius: 30,
+                          backgroundColor: Color(0xFFF27986),
+                          child: Text(
+                            '${index + 3}',
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
@@ -89,7 +90,30 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               );
             }),
-          ))
+          )),
+          /*ElevatedButton(
+              onPressed: () {
+                widget._playersNum != null? Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => InsertPlayers(widget._playersNum!))): null;
+              },
+              child: ),
+          SizedBox(
+            height: height * .021,
+          ),
+          ElevatedButton(
+              onPressed: () {},
+              child: Text(
+                'تقسيم حسب المهارة',
+                style: TextStyle(
+                    fontFamily: 'MyArabicFont',
+                    color: Colors.black,
+                    fontSize: width * .07),
+              )),
+          SizedBox(
+            height: height * .03,
+          )*/
         ],
       ),
     );
