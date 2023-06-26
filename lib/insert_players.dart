@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hagz_kura/skills_based_selection.dart';
 
@@ -19,15 +20,6 @@ class _InsertPlayersState extends State<InsertPlayers> {
   void initState() {
     super.initState();
     randomNumbers = [];
-  }
-
-  void _printData() {
-    print(widget.playersNum);
-    /*if () {
-      List<String> data = [];
-      data.shuffle();
-      print(data);
-    }*/
   }
 
   @override
@@ -66,7 +58,8 @@ class _InsertPlayersState extends State<InsertPlayers> {
             horizontal: width * .03, vertical: height * .003)),
       ),
       onPressed: () {
-        if (formKye.currentState?.validate() == false) {
+        showRandomizedDialog(context, formKye, widget.playersNum, controllers);
+        /*if (formKye.currentState?.validate() == false) {
           return;
         }
         // _generateRandomNumber();
@@ -91,6 +84,12 @@ class _InsertPlayersState extends State<InsertPlayers> {
                     width: width * .7,
                     height: height * .7,
                     child: Scaffold(
+                      floatingActionButton: FloatingActionButton.extended(
+                        backgroundColor: Color(0xFFF27986),
+                          onPressed: () {
+                          Navigator.pop(context);
+                          },
+                          label: Icon(CupertinoIcons.restart)),
                       body: Center(
                         child: SingleChildScrollView(
                           physics: BouncingScrollPhysics(),
@@ -129,7 +128,7 @@ class _InsertPlayersState extends State<InsertPlayers> {
                     ),
                   ),
                 ));
-        print(data);
+        print(data);*/
       },
       child: Text(
         'تقسيم عشوائي',
@@ -203,4 +202,80 @@ class _InsertPlayersState extends State<InsertPlayers> {
       ),
     );
   }
+}
+
+void showRandomizedDialog(BuildContext context, var formKye, int playersNum,
+    List<TextEditingController> controllers) {
+  double height = MediaQuery.of(context).size.height,
+      width = MediaQuery.of(context).size.width;
+  if (formKye.currentState?.validate() == false) {
+    return;
+  }
+  // _generateRandomNumber();
+  List<String> data = [];
+  String finalList = '';
+  for (int i = 0; i < playersNum * 2; i++) {
+    data.add(controllers[i].text);
+  }
+  data.shuffle();
+  for (int i = 0; i < playersNum * 2; i++) {
+    finalList += data[i];
+  }
+  print(finalList);
+  showDialog(
+      context: context,
+      builder: (_) => Center(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: Colors.white,
+              ),
+              width: width * .7,
+              height: height * .7,
+              child: Scaffold(
+                floatingActionButton: FloatingActionButton.extended(
+                    backgroundColor: Color(0xFFF27986),
+                    onPressed: () {
+                      Navigator.pop(context);
+                      showRandomizedDialog(
+                          context, formKye, playersNum, controllers);
+                    },
+                    label: Icon(CupertinoIcons.restart)),
+                body: Center(
+                  child: SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
+                    child: Column(
+                      children: [
+                        Text('الفريق الأول',
+                            style: TextStyle(
+                                fontFamily: 'MyArabicFont',
+                                color: Color(0xFFF27986),
+                                fontSize: width * .07,
+                                fontWeight: FontWeight.bold)),
+                        for (int i = 0; i < playersNum; i++)
+                          Text(data[i],
+                              style: TextStyle(
+                                  fontFamily: 'MyArabicFont',
+                                  color: Colors.black,
+                                  fontSize: width * .07)),
+                        Text('الفريق الثاني',
+                            style: TextStyle(
+                                fontFamily: 'MyArabicFont',
+                                color: Color(0xFFF27986),
+                                fontSize: width * .07,
+                                fontWeight: FontWeight.bold)),
+                        for (int i = playersNum; i < playersNum * 2; i++)
+                          Text(data[i],
+                              style: TextStyle(
+                                  fontFamily: 'MyArabicFont',
+                                  color: Colors.black,
+                                  fontSize: width * .07))
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ));
+  print(data);
 }

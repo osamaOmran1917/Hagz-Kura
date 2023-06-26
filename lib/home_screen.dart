@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Expanded(
               child: GridView.count(
-                physics: BouncingScrollPhysics(),
+                physics: NeverScrollableScrollPhysics(),
             padding: EdgeInsets.only(
                 left: width * .15, right: width * .15, bottom: height * .35),
             crossAxisCount: 3,
