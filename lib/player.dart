@@ -9,7 +9,8 @@ class Player {
       fitness = 0,
       planning = 0,
       selfManagement = 0,
-      gettingInAbility = 0;
+      gettingInAbility = 0,
+      totalScore = 0;
 
   Player(
       {required this.name,
@@ -22,5 +23,6 @@ class Player {
       required this.fitness,
       required this.planning,
       required this.selfManagement,
-      required this.gettingInAbility});
+      required this.gettingInAbility,
+      required this.totalScore});
 }

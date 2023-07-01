@@ -33,6 +33,8 @@ class _SkillsBasedSelectionScreenState
     List<TextEditingController> planningControllers = [];
     List<TextEditingController> selfManagementControllers = [];
     List<TextEditingController> gettingInAbilityControllers = [];
+    List<List<int>> playersScorse = [];
+    List<int> sums = [];
     for (int i = 0; i < widget.playersNames.length; i++) {
       players.add(Player(
           name: widget.playersNames[i],
@@ -45,7 +47,8 @@ class _SkillsBasedSelectionScreenState
           fitness: 0,
           planning: 0,
           selfManagement: 0,
-          gettingInAbility: 0));
+          gettingInAbility: 0,
+          totalScore: 0));
       ballControllingControllers.add(TextEditingController());
       passingControllers.add(TextEditingController());
       catchingControllers.add(TextEditingController());
@@ -56,6 +59,26 @@ class _SkillsBasedSelectionScreenState
       planningControllers.add(TextEditingController());
       selfManagementControllers.add(TextEditingController());
       gettingInAbilityControllers.add(TextEditingController());
+      if (formKye.currentState?.validate() != false) {
+        List<int> total = [
+          int.parse(ballControllingControllers[i].text),
+          int.parse(passingControllers[i].text),
+          int.parse(catchingControllers[i].text),
+          int.parse(freeShootsControllers[i].text),
+          int.parse(shootOnGoalControllers[i].text),
+          int.parse(defendingControllers[i].text),
+          int.parse(fitnessControllers[i].text),
+          int.parse(planningControllers[i].text),
+          int.parse(selfManagementControllers[i].text),
+          int.parse(gettingInAbilityControllers[i].text)
+        ];
+        playersScorse.add(total);
+        int sum = 0;
+        for (int i = 0; i < 9; i++) {
+          sum += total[i];
+        }
+        players[i].totalScore = sum;
+      }
     }
     return Scaffold(
       body: Form(
@@ -90,6 +113,12 @@ class _SkillsBasedSelectionScreenState
                       TextFormField(
                         keyboardType: TextInputType.number,
                         controller: ballControllingControllers[selectedIndex],
+                        validator: (text) {
+                          if (text == null || text.trim().isEmpty) {
+                            return 'بيان مطلوب';
+                          }
+                          return null;
+                        },
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly,
                           RangeTextInputFormatter(min: 0, max: 10),
@@ -357,13 +386,23 @@ class _SkillsBasedSelectionScreenState
                           horizontal: width * .045, vertical: height * .003)),
                     ),
                     onPressed: () {
-                      if (selectedIndex < players.length - 1) {
-                        setState(() {
-                          selectedIndex++;
-                        });
+                      if (formKye.currentState?.validate() == false) {
+                        return;
+                      } else {
+                        if (selectedIndex < players.length - 1) {
+                          setState(() {});
+                          int sum = 0;
+                          for (int i = 0; i < 9; i++) {
+                            sums.add(sum += playersScorse[selectedIndex][i]);
+                          }
+                          setState(() {
+                            selectedIndex++;
+                          });
+                        } else
+                          showPlayersDialog(context, sums, players);
+                        print(selectedIndex);
+                        print(players.length);
                       }
-                      print(selectedIndex);
-                      print(players.length);
                     },
                     child: selectedIndex == players.length - 1
                         ? Icon(CupertinoIcons.check_mark)
@@ -408,6 +447,65 @@ class _SkillsBasedSelectionScreenState
         ),
       ),
     );
+  }
+
+  void showPlayersDialog(
+      BuildContext context, List<int> sums, List<Player> players) {
+    double height = MediaQuery.of(context).size.height,
+        width = MediaQuery.of(context).size.width;
+    players.sort((a, b) => a.totalScore.compareTo(b.totalScore));
+    List<Player> firstTeam = [];
+    /*for (int i = 0; i < players.length / 2; i ++)
+      firstTeam.add(value)*/
+    // print(players[0].name);
+    /*showDialog(
+        context: context,
+        builder: (_) => Center(
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: Colors.white,
+            ),
+            width: width * .7,
+            height: height * .7,
+            child: Scaffold(
+              body: Center(
+                child: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
+                  child: Column(
+                    children: [
+                      Text('الفريق الأول',
+                          style: TextStyle(
+                              fontFamily: 'MyArabicFont',
+                              color: Color(0xFFF27986),
+                              fontSize: width * .07,
+                              fontWeight: FontWeight.bold)),
+                      for (int i = 0; i < playersNum; i++)
+                        Text(data[i],
+                            style: TextStyle(
+                                fontFamily: 'MyArabicFont',
+                                color: Colors.black,
+                                fontSize: width * .07)),
+                      Text('الفريق الثاني',
+                          style: TextStyle(
+                              fontFamily: 'MyArabicFont',
+                              color: Color(0xFFF27986),
+                              fontSize: width * .07,
+                              fontWeight: FontWeight.bold)),
+                      for (int i = playersNum; i < playersNum * 2; i++)
+                        Text(data[i],
+                            style: TextStyle(
+                                fontFamily: 'MyArabicFont',
+                                color: Colors.black,
+                                fontSize: width * .07))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ));
+    print(data);*/
   }
 }
 
