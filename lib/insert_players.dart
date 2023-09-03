@@ -32,6 +32,8 @@ class _InsertPlayersState extends State<InsertPlayers> {
       controllers.add(TextEditingController());
 
       screen.add(TextFormField(
+        textAlign: TextAlign.center,
+        style: TextStyle(fontFamily: 'myarabicfont'),
         controller: controllers[i],
         validator: (text) {
           if (text == null || text.trim().isEmpty) {
@@ -40,6 +42,14 @@ class _InsertPlayersState extends State<InsertPlayers> {
           return null;
         },
         decoration: InputDecoration(
+          counterStyle: TextStyle(fontFamily: 'myarabicfont'),
+          errorStyle: TextStyle(fontFamily: 'myarabicfont'),
+          floatingLabelStyle: TextStyle(fontFamily: 'myarabicfont'),
+          helperStyle: TextStyle(fontFamily: 'myarabicfont'),
+          hintStyle: TextStyle(fontFamily: 'myarabicfont'),
+          labelStyle: TextStyle(fontFamily: 'myarabicfont'),
+          prefixStyle: TextStyle(fontFamily: 'myarabicfont'),
+          suffixStyle: TextStyle(fontFamily: 'myarabicfont'),
           hintText: 'اللاعب رقم ${i + 1}',
         ),
       ));
@@ -59,76 +69,6 @@ class _InsertPlayersState extends State<InsertPlayers> {
       ),
       onPressed: () {
         showRandomizedDialog(context, formKye, widget.playersNum, controllers);
-        /*if (formKye.currentState?.validate() == false) {
-          return;
-        }
-        // _generateRandomNumber();
-        List<String> data = [];
-        String finalList = '';
-        for (int i = 0; i < widget.playersNum * 2; i++) {
-          data.add(controllers[i].text);
-        }
-        data.shuffle();
-        for (int i = 0; i < widget.playersNum * 2; i++) {
-          finalList += data[i];
-        }
-        print(finalList);
-        showDialog(
-            context: context,
-            builder: (_) => Center(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: Colors.white,
-                    ),
-                    width: width * .7,
-                    height: height * .7,
-                    child: Scaffold(
-                      floatingActionButton: FloatingActionButton.extended(
-                        backgroundColor: Color(0xFFF27986),
-                          onPressed: () {
-                          Navigator.pop(context);
-                          },
-                          label: Icon(CupertinoIcons.restart)),
-                      body: Center(
-                        child: SingleChildScrollView(
-                          physics: BouncingScrollPhysics(),
-                          child: Column(
-                            children: [
-                              Text('الفريق الأول',
-                                  style: TextStyle(
-                                      fontFamily: 'MyArabicFont',
-                                      color: Color(0xFFF27986),
-                                      fontSize: width * .07,
-                                      fontWeight: FontWeight.bold)),
-                              for (int i = 0; i < widget.playersNum; i++)
-                                Text(data[i],
-                                    style: TextStyle(
-                                        fontFamily: 'MyArabicFont',
-                                        color: Colors.black,
-                                        fontSize: width * .07)),
-                              Text('الفريق الثاني',
-                                  style: TextStyle(
-                                      fontFamily: 'MyArabicFont',
-                                      color: Color(0xFFF27986),
-                                      fontSize: width * .07,
-                                      fontWeight: FontWeight.bold)),
-                              for (int i = widget.playersNum;
-                                  i < widget.playersNum * 2;
-                                  i++)
-                                Text(data[i],
-                                    style: TextStyle(
-                                        fontFamily: 'MyArabicFont',
-                                        color: Colors.black,
-                                        fontSize: width * .07))
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ));
-        print(data);*/
       },
       child: Text(
         'تقسيم عشوائي',
