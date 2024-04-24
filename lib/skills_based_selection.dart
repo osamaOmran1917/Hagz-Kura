@@ -65,21 +65,22 @@ class _SkillsBasedSelectionScreenState
         title: Center(
           child: Container(
             decoration: BoxDecoration(
-                color: Color(0xFFF27986),
+                color: const Color(0xFFF27986),
                 borderRadius: BorderRadius.circular(width)),
             padding: EdgeInsets.symmetric(
                 horizontal: width * .05, vertical: height * .005),
             child: Text(
               widget.playersNames[player],
-              style: TextStyle(fontFamily: 'myarabicfont'),
+              style: const TextStyle(fontFamily: 'myarabicfont'),
             ),
           ),
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.only(left: width * .05, right: width * .05, bottom: height * .01),
+        padding: EdgeInsets.only(
+            left: width * .05, right: width * .05, bottom: height * .01),
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -92,8 +93,8 @@ class _SkillsBasedSelectionScreenState
                   // Restrict the input to the range 0-10
                 ],
                 textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'myarabicfont'),
-                decoration: InputDecoration(
+                style: const TextStyle(fontFamily: 'myarabicfont'),
+                decoration: const InputDecoration(
                   counterStyle: TextStyle(fontFamily: 'myarabicfont'),
                   errorStyle: TextStyle(fontFamily: 'myarabicfont'),
                   floatingLabelStyle: TextStyle(fontFamily: 'myarabicfont'),
@@ -105,7 +106,9 @@ class _SkillsBasedSelectionScreenState
                   hintText: 'التحكم بالكرة',
                 ),
               ),
-              SizedBox(height: height * .03,),
+              SizedBox(
+                height: height * .03,
+              ),
               TextField(
                 controller: passingControllers[player],
                 keyboardType: TextInputType.number,
@@ -115,8 +118,8 @@ class _SkillsBasedSelectionScreenState
                   // Restrict the input to the range 0-10
                 ],
                 textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'myarabicfont'),
-                decoration: InputDecoration(
+                style: const TextStyle(fontFamily: 'myarabicfont'),
+                decoration: const InputDecoration(
                   counterStyle: TextStyle(fontFamily: 'myarabicfont'),
                   errorStyle: TextStyle(fontFamily: 'myarabicfont'),
                   floatingLabelStyle: TextStyle(fontFamily: 'myarabicfont'),
@@ -128,7 +131,9 @@ class _SkillsBasedSelectionScreenState
                   hintText: 'التمرير',
                 ),
               ),
-              SizedBox(height: height * .03,),
+              SizedBox(
+                height: height * .03,
+              ),
               TextField(
                 controller: catchingControllers[player],
                 keyboardType: TextInputType.number,
@@ -138,8 +143,8 @@ class _SkillsBasedSelectionScreenState
                   // Restrict the input to the range 0-10
                 ],
                 textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'myarabicfont'),
-                decoration: InputDecoration(
+                style: const TextStyle(fontFamily: 'myarabicfont'),
+                decoration: const InputDecoration(
                   counterStyle: TextStyle(fontFamily: 'myarabicfont'),
                   errorStyle: TextStyle(fontFamily: 'myarabicfont'),
                   floatingLabelStyle: TextStyle(fontFamily: 'myarabicfont'),
@@ -151,7 +156,9 @@ class _SkillsBasedSelectionScreenState
                   hintText: 'الاستلام',
                 ),
               ),
-              SizedBox(height: height * .03,),
+              SizedBox(
+                height: height * .03,
+              ),
               TextField(
                 controller: freeShootsControllers[player],
                 keyboardType: TextInputType.number,
@@ -161,8 +168,8 @@ class _SkillsBasedSelectionScreenState
                   // Restrict the input to the range 0-10
                 ],
                 textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'myarabicfont'),
-                decoration: InputDecoration(
+                style: const TextStyle(fontFamily: 'myarabicfont'),
+                decoration: const InputDecoration(
                   counterStyle: TextStyle(fontFamily: 'myarabicfont'),
                   errorStyle: TextStyle(fontFamily: 'myarabicfont'),
                   floatingLabelStyle: TextStyle(fontFamily: 'myarabicfont'),
@@ -174,7 +181,9 @@ class _SkillsBasedSelectionScreenState
                   hintText: 'الركلات الحرة',
                 ),
               ),
-              SizedBox(height: height * .03,),
+              SizedBox(
+                height: height * .03,
+              ),
               TextField(
                 controller: shootOnGoalControllers[player],
                 keyboardType: TextInputType.number,
@@ -184,8 +193,8 @@ class _SkillsBasedSelectionScreenState
                   // Restrict the input to the range 0-10
                 ],
                 textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'myarabicfont'),
-                decoration: InputDecoration(
+                style: const TextStyle(fontFamily: 'myarabicfont'),
+                decoration: const InputDecoration(
                   counterStyle: TextStyle(fontFamily: 'myarabicfont'),
                   errorStyle: TextStyle(fontFamily: 'myarabicfont'),
                   floatingLabelStyle: TextStyle(fontFamily: 'myarabicfont'),
@@ -197,7 +206,9 @@ class _SkillsBasedSelectionScreenState
                   hintText: 'التسديد على المرمى',
                 ),
               ),
-              SizedBox(height: height * .03,),
+              SizedBox(
+                height: height * .03,
+              ),
               TextField(
                 controller: defendingControllers[player],
                 keyboardType: TextInputType.number,
@@ -207,8 +218,8 @@ class _SkillsBasedSelectionScreenState
                   // Restrict the input to the range 0-10
                 ],
                 textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'myarabicfont'),
-                decoration: InputDecoration(
+                style: const TextStyle(fontFamily: 'myarabicfont'),
+                decoration: const InputDecoration(
                   counterStyle: TextStyle(fontFamily: 'myarabicfont'),
                   errorStyle: TextStyle(fontFamily: 'myarabicfont'),
                   floatingLabelStyle: TextStyle(fontFamily: 'myarabicfont'),
@@ -220,7 +231,9 @@ class _SkillsBasedSelectionScreenState
                   hintText: 'الدفاع',
                 ),
               ),
-              SizedBox(height: height * .03,),
+              SizedBox(
+                height: height * .03,
+              ),
               TextField(
                 controller: fitnessControllers[player],
                 keyboardType: TextInputType.number,
@@ -230,8 +243,8 @@ class _SkillsBasedSelectionScreenState
                   // Restrict the input to the range 0-10
                 ],
                 textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'myarabicfont'),
-                decoration: InputDecoration(
+                style: const TextStyle(fontFamily: 'myarabicfont'),
+                decoration: const InputDecoration(
                   counterStyle: TextStyle(fontFamily: 'myarabicfont'),
                   errorStyle: TextStyle(fontFamily: 'myarabicfont'),
                   floatingLabelStyle: TextStyle(fontFamily: 'myarabicfont'),
@@ -243,7 +256,9 @@ class _SkillsBasedSelectionScreenState
                   hintText: 'اللياقة البدنية',
                 ),
               ),
-              SizedBox(height: height * .03,),
+              SizedBox(
+                height: height * .03,
+              ),
               TextField(
                 controller: planningControllers[player],
                 keyboardType: TextInputType.number,
@@ -253,8 +268,8 @@ class _SkillsBasedSelectionScreenState
                   // Restrict the input to the range 0-10
                 ],
                 textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'myarabicfont'),
-                decoration: InputDecoration(
+                style: const TextStyle(fontFamily: 'myarabicfont'),
+                decoration: const InputDecoration(
                   counterStyle: TextStyle(fontFamily: 'myarabicfont'),
                   errorStyle: TextStyle(fontFamily: 'myarabicfont'),
                   floatingLabelStyle: TextStyle(fontFamily: 'myarabicfont'),
@@ -266,7 +281,9 @@ class _SkillsBasedSelectionScreenState
                   hintText: 'التكتيك',
                 ),
               ),
-              SizedBox(height: height * .03,),
+              SizedBox(
+                height: height * .03,
+              ),
               TextField(
                 controller: selfManagementControllers[player],
                 keyboardType: TextInputType.number,
@@ -276,8 +293,8 @@ class _SkillsBasedSelectionScreenState
                   // Restrict the input to the range 0-10
                 ],
                 textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'myarabicfont'),
-                decoration: InputDecoration(
+                style: const TextStyle(fontFamily: 'myarabicfont'),
+                decoration: const InputDecoration(
                   counterStyle: TextStyle(fontFamily: 'myarabicfont'),
                   errorStyle: TextStyle(fontFamily: 'myarabicfont'),
                   floatingLabelStyle: TextStyle(fontFamily: 'myarabicfont'),
@@ -289,7 +306,9 @@ class _SkillsBasedSelectionScreenState
                   hintText: 'الإدارة الذاتية',
                 ),
               ),
-              SizedBox(height: height * .03,),
+              SizedBox(
+                height: height * .03,
+              ),
               TextField(
                 controller: gettingInAbilityControllers[player],
                 keyboardType: TextInputType.number,
@@ -299,8 +318,8 @@ class _SkillsBasedSelectionScreenState
                   // Restrict the input to the range 0-10
                 ],
                 textAlign: TextAlign.center,
-                style: TextStyle(fontFamily: 'myarabicfont'),
-                decoration: InputDecoration(
+                style: const TextStyle(fontFamily: 'myarabicfont'),
+                decoration: const InputDecoration(
                   counterStyle: TextStyle(fontFamily: 'myarabicfont'),
                   errorStyle: TextStyle(fontFamily: 'myarabicfont'),
                   floatingLabelStyle: TextStyle(fontFamily: 'myarabicfont'),
@@ -324,25 +343,47 @@ class _SkillsBasedSelectionScreenState
             GestureDetector(
               onTap: () {
                 setState(() {
-                  players[player].totalScore =
-                     (ballControllingControllers[player].text.isNotEmpty? int.parse(ballControllingControllers[player].text): 0) +
-                     (passingControllers[player].text.isNotEmpty? int.parse(passingControllers[player].text): 0) +
-                     (catchingControllers[player].text.isNotEmpty? int.parse(catchingControllers[player].text): 0) +
-                     (freeShootsControllers[player].text.isNotEmpty? int.parse(freeShootsControllers[player].text): 0) +
-                     (shootOnGoalControllers[player].text.isNotEmpty? int.parse(shootOnGoalControllers[player].text): 0) +
-                     (defendingControllers[player].text.isNotEmpty? int.parse(defendingControllers[player].text): 0) +
-                     (fitnessControllers[player].text.isNotEmpty? int.parse(fitnessControllers[player].text): 0) +
-                     (planningControllers[player].text.isNotEmpty? int.parse(planningControllers[player].text): 0) +
-                     (selfManagementControllers[player].text.isNotEmpty? int.parse(selfManagementControllers[player].text): 0) +
-                     (gettingInAbilityControllers[player].text.isNotEmpty? int.parse(gettingInAbilityControllers[player].text): 0);
+                  players[player]
+                      .totalScore = (ballControllingControllers[player]
+                              .text
+                              .isNotEmpty
+                          ? int.parse(ballControllingControllers[player].text)
+                          : 0) +
+                      (passingControllers[player].text.isNotEmpty
+                          ? int.parse(passingControllers[player].text)
+                          : 0) +
+                      (catchingControllers[player].text.isNotEmpty
+                          ? int.parse(catchingControllers[player].text)
+                          : 0) +
+                      (freeShootsControllers[player].text.isNotEmpty
+                          ? int.parse(freeShootsControllers[player].text)
+                          : 0) +
+                      (shootOnGoalControllers[player].text.isNotEmpty
+                          ? int.parse(shootOnGoalControllers[player].text)
+                          : 0) +
+                      (defendingControllers[player].text.isNotEmpty
+                          ? int.parse(defendingControllers[player].text)
+                          : 0) +
+                      (fitnessControllers[player].text.isNotEmpty
+                          ? int.parse(fitnessControllers[player].text)
+                          : 0) +
+                      (planningControllers[player].text.isNotEmpty
+                          ? int.parse(planningControllers[player].text)
+                          : 0) +
+                      (selfManagementControllers[player].text.isNotEmpty
+                          ? int.parse(selfManagementControllers[player].text)
+                          : 0) +
+                      (gettingInAbilityControllers[player].text.isNotEmpty
+                          ? int.parse(gettingInAbilityControllers[player].text)
+                          : 0);
                   log(players[player].totalScore.toString());
                   players[player].name = widget.playersNames[player];
                   log(players[player].name);
-                  if(player < (widget.playersNames.length - 1)) {
+                  if (player < (widget.playersNames.length - 1)) {
                     player++;
                   } else {
                     List<int> playersScores = [];
-                    for(int i = 0; i < widget.playersNames.length; i++) {
+                    for (int i = 0; i < widget.playersNames.length; i++) {
                       playersScores.add(players[i].totalScore);
                     }
                     playersScores.sort();
@@ -353,85 +394,123 @@ class _SkillsBasedSelectionScreenState
                     for (int i = 0; i < playersScores.length; i++) {
                       if (i % 2 == 0) {
                         group1.add(playersScores[i]);
+                        groupI.add(players[i].name);
                       } else {
                         group2.add(playersScores[i]);
+                        groupII.add(players[i].name);
+                      }
+                      if (i == playersScores.length) {
+                        List<List<String>> balancedStringArrays =
+                            balanceStringArrays(
+                                group1, group2, groupI, groupII);
+                        groupI = balancedStringArrays[0];
+                        groupII = balancedStringArrays[1];
                       }
                     }
                     showDialog(
                         context: context,
                         builder: (_) => Center(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              color: Colors.white,
-                            ),
-                            width: width * .7,
-                            height: height * .7,
-                            child: Scaffold(
-                              body: Center(
-                                child: SingleChildScrollView(
-                                  physics: BouncingScrollPhysics(),
-                                  child: Column(
-                                    children: [
-                                      Text('الفريق الأول',
-                                          style: TextStyle(
-                                              fontFamily: 'MyArabicFont',
-                                              color: Color(0xFFF27986),
-                                              fontSize: width * .07,
-                                              fontWeight: FontWeight.bold)),
-                                      for (int i = 0; i < playersScores.length / 2; i++)
-                                        Text(group1[i].toString(),
-                                            style: TextStyle(
-                                                fontFamily: 'MyArabicFont',
-                                                color: Colors.black,
-                                                fontSize: width * .07)),
-                                      Text('الفريق الثاني',
-                                          style: TextStyle(
-                                              fontFamily: 'MyArabicFont',
-                                              color: Color(0xFFF27986),
-                                              fontSize: width * .07,
-                                              fontWeight: FontWeight.bold)),
-                                      for (int i = 0; i < playersScores.length / 2; i++)
-                                        Text(group2[i].toString(),
-                                            style: TextStyle(
-                                                fontFamily: 'MyArabicFont',
-                                                color: Colors.black,
-                                                fontSize: width * .07))
-                                    ],
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors.white,
+                                ),
+                                width: width * .7,
+                                height: height * .7,
+                                child: Scaffold(
+                                  body: Center(
+                                    child: SingleChildScrollView(
+                                      physics: const BouncingScrollPhysics(),
+                                      child: Column(
+                                        children: [
+                                          Text('الفريق الأول',
+                                              style: TextStyle(
+                                                  fontFamily: 'MyArabicFont',
+                                                  color:
+                                                      const Color(0xFFF27986),
+                                                  fontSize: width * .07,
+                                                  fontWeight: FontWeight.bold)),
+                                          for (int i = 0;
+                                              i < playersScores.length / 2;
+                                              i++)
+                                            Text(groupI[i].toString(),
+                                                style: TextStyle(
+                                                    fontFamily: 'MyArabicFont',
+                                                    color: Colors.black,
+                                                    fontSize: width * .07)),
+                                          Text('الفريق الثاني',
+                                              style: TextStyle(
+                                                  fontFamily: 'MyArabicFont',
+                                                  color:
+                                                      const Color(0xFFF27986),
+                                                  fontSize: width * .07,
+                                                  fontWeight: FontWeight.bold)),
+                                          for (int i = 0;
+                                              i < playersScores.length / 2;
+                                              i++)
+                                            Text(groupII[i].toString(),
+                                                style: TextStyle(
+                                                    fontFamily: 'MyArabicFont',
+                                                    color: Colors.black,
+                                                    fontSize: width * .07))
+                                        ],
+                                      ),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ),
-                        ));
+                            ));
                     print(widget.playersNames);
                   }
                   log(player.toString());
                 });
               },
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: width * .03, vertical: height * .007),
+                padding: EdgeInsets.symmetric(
+                    horizontal: width * .03, vertical: height * .007),
                 decoration: BoxDecoration(
-                  color: Color(0xFFF27986),
-                  borderRadius: BorderRadius.circular(width * .061)
-                ),
-                child: player < (players.length - 1)? Text('التالي', style: TextStyle(fontFamily: 'myarabicfont', color: Colors.white, fontSize: width * .07),): Icon(CupertinoIcons.check_mark, color: Colors.white,),
+                    color: const Color(0xFFF27986),
+                    borderRadius: BorderRadius.circular(width * .061)),
+                child: player < (players.length - 1)
+                    ? Text(
+                        'التالي',
+                        style: TextStyle(
+                            fontFamily: 'myarabicfont',
+                            color: Colors.white,
+                            fontSize: width * .07),
+                      )
+                    : const Icon(
+                        CupertinoIcons.check_mark,
+                        color: Colors.white,
+                      ),
               ),
             ),
             GestureDetector(
               onTap: () {
                 setState(() {
-                  player == 0? Navigator.pop(context): player--;
+                  player == 0 ? Navigator.pop(context) : player--;
                   log(player.toString());
                 });
               },
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: width * .03, vertical: height * .007),
+                padding: EdgeInsets.symmetric(
+                    horizontal: width * .03, vertical: height * .007),
                 decoration: BoxDecoration(
-                  color: Color(0xFFF27986),
-                  borderRadius: BorderRadius.circular(width * .061)
-                ),
-                child: player > 0? Text('السابق', style: TextStyle(fontFamily: 'myarabicfont', color: Colors.white, fontSize: width * .07),): Icon(CupertinoIcons.arrow_right, color: Colors.white, size: width * .07,),
+                    color: const Color(0xFFF27986),
+                    borderRadius: BorderRadius.circular(width * .061)),
+                child: player > 0
+                    ? Text(
+                        'السابق',
+                        style: TextStyle(
+                            fontFamily: 'myarabicfont',
+                            color: Colors.white,
+                            fontSize: width * .07),
+                      )
+                    : Icon(
+                        CupertinoIcons.arrow_right,
+                        color: Colors.white,
+                        size: width * .07,
+                      ),
               ),
             )
           ],
@@ -439,6 +518,7 @@ class _SkillsBasedSelectionScreenState
       ),
     );
   }
+
   int player = 0;
   List<Player> players = [];
   List<TextEditingController> ballControllingControllers = [];
@@ -468,8 +548,9 @@ class _SkillsBasedSelectionScreenState
           totalScore: 0));
     }
   }
+
   void addControllers(int playersNum) {
-    for(int i = 0; i < playersNum; i++) {
+    for (int i = 0; i < playersNum; i++) {
       ballControllingControllers.add(TextEditingController());
       passingControllers.add(TextEditingController());
       catchingControllers.add(TextEditingController());
@@ -481,5 +562,28 @@ class _SkillsBasedSelectionScreenState
       selfManagementControllers.add(TextEditingController());
       gettingInAbilityControllers.add(TextEditingController());
     }
+  }
+
+  List<List<String>> balanceStringArrays(List<int> array1, List<int> array2,
+      List<String> stringArray1, List<String> stringArray2) {
+    // ادمج الـ int arrays معًا وفرزها
+    List<int> mergedArray = [...array1, ...array2];
+    mergedArray.sort();
+
+    // تحديث الـ string arrays بناءً على الترتيب الجديد للـ int arrays
+    List<String> updatedStringArray1 = [];
+    List<String> updatedStringArray2 = [];
+
+    for (int num in mergedArray) {
+      if (array1.contains(num)) {
+        int index = array1.indexOf(num);
+        updatedStringArray1.add(stringArray1[index]);
+      } else {
+        int index = array2.indexOf(num);
+        updatedStringArray2.add(stringArray2[index]);
+      }
+    }
+
+    return [updatedStringArray1, updatedStringArray2];
   }
 }
