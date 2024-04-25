@@ -12,7 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(milliseconds: 500), () {
+    Future.delayed(const Duration(milliseconds: 500), () {
       setState(() {
         _isAnimated = true;
       });
@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 AnimatedPositioned(
                   top: height * .21,
                   right: _isAnimated ? width * .199 : -width * .5,
-                  duration: Duration(seconds: 1),
+                  duration: const Duration(seconds: 1),
                   child: Text(
                     'الفرقة الواحدة كام لاعب؟',
                     style: TextStyle(
@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Expanded(
               child: GridView.count(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.only(
                 left: width * .15, right: width * .15, bottom: height * .35),
             crossAxisCount: 3,
@@ -74,13 +74,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Material(
                       color: Colors.transparent,
                       child: Card(
-                        shape: CircleBorder(),
+                        shape: const CircleBorder(),
                         child: CircleAvatar(
                           radius: 30,
-                          backgroundColor: Color(0xFFF27986),
+                          backgroundColor: const Color(0xFFF27986),
                           child: Text(
                             '${index + 3}',
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
                         ),

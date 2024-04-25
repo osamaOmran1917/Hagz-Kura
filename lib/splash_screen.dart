@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:hagz_kura/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
@@ -12,15 +14,15 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 6), () {
       SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
           systemNavigationBarColor: Colors.white,
           statusBarColor: Colors.white));
       Navigator.pushReplacement(
         context,
         PageRouteBuilder(
-          transitionDuration: Duration(milliseconds: 1701),
+          transitionDuration: const Duration(milliseconds: 1701),
           pageBuilder: (_, __, ___) => HomeScreen(),
           transitionsBuilder: (_, animation, __, child) {
             return RotationTransition(
@@ -57,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
     double height = MediaQuery.of(context).size.height,
         width = MediaQuery.of(context).size.width;
     return Scaffold(
-      floatingActionButton: Center(
+      floatingActionButton: const Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
@@ -77,16 +79,16 @@ class _SplashScreenState extends State<SplashScreen> {
             height: height * .03,
           ),
           TypewriterAnimatedTextKit(
-            text: ['حجز كورة'],
+            text: const ['حجز كورة'],
             textStyle: TextStyle(
               fontFamily: 'MyArabicFont',
-              fontSize: width * .099,
+              fontSize: width * .099
             ),
-            speed: Duration(milliseconds: 150),
-            totalRepeatCount: 1,
-          ),
-        ],
-      ),
+            speed: const Duration(milliseconds: 150),
+            totalRepeatCount: 1
+          )
+        ]
+      )
     );
   }
 }
